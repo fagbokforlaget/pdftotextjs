@@ -13,7 +13,7 @@ $ npm install pdftotextjs
 ### Usage
 ```
 var pdftotext = require('pdftotextjs'),
-    ptext = new pdftotext('tests/pdfs/sample.pdf');
+    ptext = new pdftotext('test/pdfs/sample.pdf');
 
 ptext.success(function(i) {
   console.log(i);
