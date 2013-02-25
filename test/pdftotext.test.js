@@ -12,6 +12,39 @@ describe('pdftotext', function(){
     })
   });
 
+  describe('sync_text', function(){
+    it('should get pdf text via sync call', function(){
+      var ptext = new pdftotext(__dirname + '/pdfs/sample.pdf');
+      var ret = ptext.getSync();
+      assert.ok(ret.length);
+    });
+  });
+
+  describe('sync_error', function(){
+    it('should throw exception', function(){
+      var ptext = new pdftotext(__dirname + '/pdfs/invalidfile.pdf');
+      function fn() {
+        var ret = ptext.getSync();
+      }
+      assert.throws(fn, /pdftotext error/);
+    });
+  });
+
+  describe('file_with_spaces_info', function(){
+    it('should get pdf text', function(done){
+      var pinfo = new pdftotext(__dirname + '/pdfs/sample 1.pdf');
+
+      pinfo.success(function(ret) {
+        assert.ok(ret.length);
+        done();
+      });
+
+      pinfo.error(function(error) {
+      });
+
+      pinfo.get();
+    });
+  });
 
   describe('pdftotext', function(){
     it('should get pdf text', function(done){
