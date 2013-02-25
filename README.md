@@ -1,5 +1,5 @@
 ## pdftotextjs - pdftotext shell wrapper for Node.js
-[![Build Status](https://travis-ci.org/fagbokforlaget/pdftotext.png)](https://travis-ci.org/fagbokforlaget/pdftotextjs)
+[![Build Status](https://travis-ci.org/fagbokforlaget/pdftotextjs.png)](https://travis-ci.org/fagbokforlaget/pdftotextjs)
 pdftotextjs provides access to `pdftotext` via shell in nodejs.
 
 ### Installation
