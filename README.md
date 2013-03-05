@@ -5,7 +5,7 @@ need `pdftotext` which comes with `poppler-utils`.
 
 * Ubuntu/Debian `sudo apt-get install poppler-utils`.
 * MacOSX `sudo port install poppler` or `brew install xpdf`.
-* Windows Download and install [Xpdf](http://www.foolabs.com/xpdf/download.html).
+* Windows `download and install` [Xpdf](http://www.foolabs.com/xpdf/download.html).
 
 ### Installation
 
