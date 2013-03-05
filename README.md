@@ -1,6 +1,11 @@
 ## pdftotextjs - pdftotext shell wrapper for Node.js
 [![Build Status](https://travis-ci.org/fagbokforlaget/pdftotextjs.png)](https://travis-ci.org/fagbokforlaget/pdftotextjs)
-pdftotextjs provides access to `pdftotext` via shell in nodejs.
+pdftotextjs provides access to `pdftotext` via shell in nodejs. You'll
+need `pdftotext` which comes with `poppler-utils`.
+
+* Ubuntu/Debian `sudo apt-get install poppler-utils`.
+* MacOSX `sudo port install poppler` or `brew install xpdf`.
+* Windows Download and install [!Xpdf](http://www.foolabs.com/xpdf/download.html).
 
 ### Installation
 
