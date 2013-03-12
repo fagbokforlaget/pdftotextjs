@@ -62,6 +62,26 @@ describe('pdftotext', function(){
     });
   });
 
+  describe('pdftotext', function(){
+    it('should get pdf text per page', function(done){
+      var ptext = new pdftotext(__dirname + '/pdfs/sample.pdf');
+
+      ptext.success(function(ret, options) {
+        assert.ok(options.page, 1);
+        assert.ok(ret.length);
+        done();
+      });
+
+      ptext.error(function(error) {
+      });
+
+      ptext.add_options(['-f 1', '-l 1']);
+      ptext.get({"page": 1});
+    });
+  });
+
+
+
   describe('error', function(done){
     it('should call error callback', function(){
       var ptext = new pdftotext(__dirname + '/pdfs/invalidfile.pdf');

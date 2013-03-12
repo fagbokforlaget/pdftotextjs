@@ -1,6 +1,6 @@
 {
   "name": "pdftotextjs",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Extracts text from pdf with pdftotext (poppler)",
   "url": "https://github.com/fagbokforlaget/pdftotextjs",
   "main": "index.js",
