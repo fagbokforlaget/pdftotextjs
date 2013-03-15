@@ -11,7 +11,7 @@ test-cov: lib-cov
 
 lib-cov:
 		@rm -fr ./$@
-		@jscoverage --no-highlight lib $@
+		@./node_modules/jscoverage/bin/jscoverage --no-highlight lib $@
 
 clean:
 		rm -f test/coverage.html
