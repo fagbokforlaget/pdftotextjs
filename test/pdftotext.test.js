@@ -1,6 +1,6 @@
 var assert = require('assert'),
     fs = require('fs'),
-    pdftotext = require('../lib/pdftotext.js');
+    pdftotext = require('../index.js');
 
 describe('pdftotext', function(){
   describe('add_options', function(){

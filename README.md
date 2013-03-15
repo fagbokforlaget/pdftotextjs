@@ -59,7 +59,7 @@ console.log(data);
 $ npm test
 ```
 
-Coverage (Make sure you have installed jscoverage (it's easy `sudo aptitude install jscoverage` or `brew jscoverage`)
+Coverage
 
 ```
 $ npm test-cov
