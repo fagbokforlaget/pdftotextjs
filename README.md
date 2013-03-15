@@ -21,24 +21,33 @@ $ npm install pdftotextjs
 var pdftotext = require('pdftotextjs'),
     pdf = new pdftotext('test/pdfs/sample.pdf');
 
+// Convert first page only
+// These options will be passed to pdftotext
+// You may use any valid option
+pdf.add_options(['-f 1', '-l 1']);
+
 pdf.getText(function(err, data, cmd) {
   if (err) {
     console.error(err);
   else {
     console.log(data);
     // additionally you can also access cmd array
-    // it contains params which passed to pdftotext ['filename', '-f', '1', '-']
+    // it contains params which passed to pdftotext ['filename', '-f', '1', '-l', '1', '-']
     console.log(cmd.join(' '));
   }
 });
 
 ```
+NOTE: `get` method is now obsolete and not recommended to use it
+further. Please use `getText`.
+
+
 #### Synchronous example
 ```
 var pdftotext = require('pdftotextjs'),
-    ptext = new pdftotext('test/pdfs/sample.pdf');
+    pdf = new pdftotext('test/pdfs/sample.pdf');
 
-var data = ptext.getTextSync();
+var data = pdf.getTextSync();
 console.log(data);
 ```
 NOTE: `getSync` method is now obsolete and not recommended to use it
