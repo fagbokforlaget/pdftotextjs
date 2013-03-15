@@ -19,40 +19,30 @@ $ npm install pdftotextjs
 #### Asynchronous example
 ```
 var pdftotext = require('pdftotextjs'),
-    ptext = new pdftotext('test/pdfs/sample.pdf');
+    pdf = new pdftotext('test/pdfs/sample.pdf');
 
-ptext.success(function(i) {
-  console.log(i);
-});
-
-ptext.error(function(error) {
-  console.log("Error: " + error);
-});
-
-ptext.get();
-```
-You may also pass callbacks in as object. In that case above can be also re-written as:
-```
-var pdftotext = require('pdftotextjs');
-var ptext = new pdftotext('test/pdfs/sample.pdf', {
-  error: function(e) {
-    console.log("Error:" + e);
-  },
-  success: function(data) {
+pdf.getText(function(err, data, cmd) {
+  if (err) {
+    console.error(err);
+  else {
     console.log(data);
+    // additionally you can also access cmd array
+    // it contains params which passed to pdftotext ['filename', '-f', '1', '-']
+    console.log(cmd.join(' '));
   }
 });
 
-ptext.get();
 ```
 #### Synchronous example
 ```
 var pdftotext = require('pdftotextjs'),
     ptext = new pdftotext('test/pdfs/sample.pdf');
 
-var data = ptext.getSync();
+var data = ptext.getTextSync();
 console.log(data);
 ```
+NOTE: `getSync` method is now obsolete and not recommended to use it
+further. Please use `getTextSync`.
 
 ### Tests
 ```

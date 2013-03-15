@@ -15,7 +15,7 @@ describe('pdftotext', function(){
   describe('sync_text', function(){
     it('should get pdf text via sync call', function(){
       var ptext = new pdftotext(__dirname + '/pdfs/sample.pdf');
-      var ret = ptext.getSync();
+      var ret = ptext.getTextSync();
       assert.ok(ret.length);
     });
   });
@@ -24,7 +24,7 @@ describe('pdftotext', function(){
     it('should throw exception', function(){
       var ptext = new pdftotext(__dirname + '/pdfs/invalidfile.pdf');
       function fn() {
-        var ret = ptext.getSync();
+        var ret = ptext.getTextSync();
       }
       assert.throws(fn, /pdftotext error/);
     });
@@ -32,33 +32,29 @@ describe('pdftotext', function(){
 
   describe('file_with_spaces_info', function(){
     it('should get pdf text', function(done){
-      var pinfo = new pdftotext(__dirname + '/pdfs/sample 1.pdf');
-
-      pinfo.success(function(ret) {
+      var ptext = new pdftotext(__dirname + '/pdfs/sample 1.pdf');
+      
+      ptext.getText(function(err, ret, opts) {
+        assert.equal(err, null);
         assert.ok(ret.length);
+        assert.equal(opts.length, 2);
         done();
       });
 
-      pinfo.error(function(error) {
-      });
-
-      pinfo.get();
     });
   });
 
   describe('pdftotext', function(){
     it('should get pdf text', function(done){
       var ptext = new pdftotext(__dirname + '/pdfs/sample.pdf');
-
-      ptext.success(function(ret) {
+      
+      ptext.getText(function(err, ret, opts) {
+        assert.equal(err, null);
         assert.ok(ret.length);
+        assert.equal(opts.length, 2);
         done();
       });
 
-      ptext.error(function(error) {
-      });
-
-      ptext.get();
     });
   });
 
@@ -66,34 +62,27 @@ describe('pdftotext', function(){
     it('should get pdf text per page', function(done){
       var ptext = new pdftotext(__dirname + '/pdfs/sample.pdf');
 
-      ptext.success(function(ret, options) {
-        assert.ok(options.page, 1);
+      ptext.add_options(['-f 1', '-l 1']);
+
+      ptext.getText(function(err, ret, opts) {
+        assert.equal(err, null);
         assert.ok(ret.length);
+        assert.equal(opts.length, 6);
         done();
       });
 
-      ptext.error(function(error) {
-      });
-
-      ptext.add_options(['-f 1', '-l 1']);
-      ptext.get({"page": 1});
     });
   });
-
-
 
   describe('error', function(done){
     it('should call error callback', function(){
       var ptext = new pdftotext(__dirname + '/pdfs/invalidfile.pdf');
 
-      ptext.success(function() {
+      ptext.getText(function(err, data, opts) {
+        if (err) {
+          done();
+        }
       });
-
-      ptext.error(function(error) {
-        done();
-      });
-
-      ptext.get();
     })
   });
 
