@@ -1,5 +1,12 @@
 ## pdftotextjs - pdftotext shell wrapper for Node.js
-[![Build Status](https://travis-ci.org/fagbokforlaget/pdftotextjs.png)](https://travis-ci.org/fagbokforlaget/pdftotextjs)
+
+[![view on npm](http://img.shields.io/npm/v/pdftotextjs.svg)](https://www.npmjs.org/package/pdftotextjs)
+[![npm module downloads](http://img.shields.io/npm/dt/pdftotextjs.svg)](https://www.npmjs.org/package/pdftotextjs)
+[![Dependency Status](https://david-dm.org/fagbokforlaget/pdftotextjs.svg)](https://david-dm.org/fagbokforlaget/pdftotextjs)
+[![Build Status](https://travis-ci.org/fagbokforlaget/pdftotextjs.svg)](https://travis-ci.org/fagbokforlaget/pdftotextjs)
+[![view on npm](http://img.shields.io/npm/l/pdftotextjs.svg)](https://www.npmjs.org/package/pdftotextjs)
+
+
 pdftotextjs provides access to `pdftotext` via shell in nodejs. You'll
 need `pdftotext` which comes with `poppler-utils`.
 
