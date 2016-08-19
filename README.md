@@ -33,20 +33,15 @@ var pdftotext = require('pdftotextjs'),
 // You may use any valid option
 pdf.add_options(['-f 1', '-l 1']);
 
-pdf.getText(function(err, data, cmd) {
+pdf.getText(function(err, stdout, stderr) {
   if (err) {
-    console.error(err);
+    console.error(stderr);
   else {
-    console.log(data);
-    // additionally you can also access cmd array
-    // it contains params which passed to pdftotext ['filename', '-f', '1', '-l', '1', '-']
-    console.log(cmd.join(' '));
+    console.log(stdout);
   }
 });
 
 ```
-NOTE: `get` method is now obsolete and not recommended to use it
-further. Please use `getText`.
 
 
 #### Synchronous example
@@ -54,11 +49,9 @@ further. Please use `getText`.
 var pdftotext = require('pdftotextjs'),
     pdf = new pdftotext('test/pdfs/sample.pdf');
 
-var data = pdf.getTextSync();
-console.log(data);
+var data = pdf.getTextSync(); // returns buffer
+console.log(data.toString('utf8'));
 ```
-NOTE: `getSync` method is now obsolete and not recommended to use it
-further. Please use `getTextSync`.
 
 ### Tests
 ```
