@@ -15,8 +15,8 @@ describe('pdftotext', function(){
   describe('sync_text', function(){
     it('should get pdf text via sync call', function(){
       var ptext = new pdftotext(__dirname + '/pdfs/sample.pdf');
-      var ret = ptext.getTextSync();
-      assert.ok(ret.length);
+      var stdout = ptext.getTextSync();
+      assert.ok(stdout.length);
     });
   });
 
@@ -24,20 +24,19 @@ describe('pdftotext', function(){
     it('should throw exception', function(){
       var ptext = new pdftotext(__dirname + '/pdfs/invalidfile.pdf');
       function fn() {
-        var ret = ptext.getTextSync();
+        var stdout = ptext.getTextSync();
       }
-      assert.throws(fn, /pdftotext error/);
+      assert.throws(fn, /I\/O Error/);
     });
   });
 
   describe('file_with_spaces_info', function(){
     it('should get pdf text', function(done){
       var ptext = new pdftotext(__dirname + '/pdfs/sample 1.pdf');
-      
-      ptext.getText(function(err, ret, opts) {
+
+      ptext.getText(function(err, stdout, stderr) {
         assert.equal(err, null);
-        assert.ok(ret.length);
-        assert.equal(opts.length, 2);
+        assert.ok(stdout.length);
         done();
       });
 
@@ -47,11 +46,10 @@ describe('pdftotext', function(){
   describe('pdftotext', function(){
     it('should get pdf text', function(done){
       var ptext = new pdftotext(__dirname + '/pdfs/sample.pdf');
-      
-      ptext.getText(function(err, ret, opts) {
+
+      ptext.getText(function(err, stdout, stderr) {
         assert.equal(err, null);
-        assert.ok(ret.length);
-        assert.equal(opts.length, 2);
+        assert.ok(stdout.length);
         done();
       });
 
@@ -64,10 +62,9 @@ describe('pdftotext', function(){
 
       ptext.add_options(['-f 1', '-l 1']);
 
-      ptext.getText(function(err, ret, opts) {
+      ptext.getText(function(err, stdout, stderr) {
         assert.equal(err, null);
-        assert.ok(ret.length);
-        assert.equal(opts.length, 6);
+        assert.ok(stdout.length);
         done();
       });
 
@@ -78,7 +75,7 @@ describe('pdftotext', function(){
     it('should call error callback', function(){
       var ptext = new pdftotext(__dirname + '/pdfs/invalidfile.pdf');
 
-      ptext.getText(function(err, data, opts) {
+      ptext.getText(function(err, stdout, stderr) {
         if (err) {
           done();
         }

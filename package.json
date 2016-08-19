@@ -8,7 +8,6 @@
     "test": "make test"
   },
   "dependencies": {
-    "shelljs": ">=0.1.2"
   },
   "devDependencies": {
     "mocha": "*",
