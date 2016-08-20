@@ -9,7 +9,7 @@ describe('pdftotext', function(){
       ptext.add_options(['-raw', '-f 1', 'l 1', '-']);
       assert.equal(1, ptext.options.additional.indexOf('-raw'));
       assert.equal(2, ptext.options.additional.indexOf('-f'));
-    })
+    });
   });
 
   describe('sync_text', function(){
@@ -80,7 +80,7 @@ describe('pdftotext', function(){
           done();
         }
       });
-    })
+    });
   });
 
-})
+});
