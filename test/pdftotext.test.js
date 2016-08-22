@@ -26,7 +26,7 @@ describe('pdftotext', function(){
       function fn() {
         return ptext.getTextSync().toString('utf8');
       }
-      assert.throws(fn, /I\/O Error/);
+      assert.throws(fn, /error/gi);
     });
   });
 
