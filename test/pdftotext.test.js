@@ -4,7 +4,7 @@ var assert = require('assert'),
 
 describe('pdftotext', function(){
   describe('add_options', function(){
-    it('should add options', function(){
+    it('should fail because a pdf file is missing', function(){
       var ptext = new pdftotext(__dirname + '/pdfs/invalidfile.pdf');
       ptext.add_options(['-raw', '-f 1', 'l 1', '-']);
       assert.equal(1, ptext.options.additional.indexOf('-raw'));
@@ -24,9 +24,9 @@ describe('pdftotext', function(){
     it('should throw exception', function(){
       var ptext = new pdftotext(__dirname + '/pdfs/invalidfile.pdf');
       function fn() {
-        var stdout = ptext.getTextSync();
+        return ptext.getTextSync().toString('utf8');
       }
-      assert.throws(fn, /I\/O Error/);
+      assert.throws(fn, /error/gi);
     });
   });
 
