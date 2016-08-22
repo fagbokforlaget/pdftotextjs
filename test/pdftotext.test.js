@@ -15,7 +15,7 @@ describe('pdftotext', function(){
   describe('sync_text', function(){
     it('should get pdf text via sync call', function(){
       var ptext = new pdftotext(__dirname + '/pdfs/sample.pdf');
-      var stdout = ptext.getTextSync().toString('utf-8');
+      var stdout = ptext.getTextSync().toString('utf8');
       assert.ok(stdout.length);
     });
   });
