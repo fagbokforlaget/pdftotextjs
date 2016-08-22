@@ -24,7 +24,7 @@ describe('pdftotext', function(){
     it('should throw exception', function(){
       var ptext = new pdftotext(__dirname + '/pdfs/invalidfile.pdf');
       function fn() {
-        return ptext.getTextSync();
+        return ptext.getTextSync().toString('utf8');
       }
       assert.throws(fn, /I\/O Error/);
     });
