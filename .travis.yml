@@ -1,6 +1,8 @@
 language: node_js
 before_install:
   - sudo apt-get install -qq poppler-utils
+before_script:
+  - pdftotext -v
 node_js:
   - "0.12"
   - 4
