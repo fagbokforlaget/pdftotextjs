@@ -23,6 +23,10 @@
     "mocha",
     "poppler"
   ],
-  "author": "Deepak Thukral <iapain@iapa.in> http://iapa.in",
+  "author": {
+    name: "Deepak Thukral",
+    email: "iapain@iapa.in",
+    url: "http://iapa.in"
+  },
   "license": "MIT"
 }
