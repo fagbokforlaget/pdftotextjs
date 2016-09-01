@@ -24,9 +24,9 @@
     "poppler"
   ],
   "author": {
-    name: "Deepak Thukral",
-    email: "iapain@iapa.in",
-    url: "http://iapa.in"
+    "name": "Deepak Thukral",
+    "email": "iapain@iapa.in",
+    "url": "http://iapa.in"
   },
   "license": "MIT"
 }
