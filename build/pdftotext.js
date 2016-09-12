@@ -14,17 +14,14 @@ function pdftotext(filename, options) {
     var _this = this;
 
     if (_typeof(optionArray.length) !== undefined) {
-      (function () {
-        var self = _this;
-        optionArray.forEach(function (el) {
-          if (el.indexOf(' ') > 0) {
-            var values = el.split(' ');
-            self.options.additional.push(values[0], values[1]);
-          } else {
-            self.options.additional.push(el);
-          }
-        });
-      })();
+      optionArray.forEach(function (el) {
+        if (el.indexOf(' ') > 0) {
+          var values = el.split(' ');
+          _this.options.additional.push(values[0], values[1]);
+        } else {
+          _this.options.additional.push(el);
+        }
+      });
     }
     return this;
   };
