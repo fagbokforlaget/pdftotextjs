@@ -4,6 +4,7 @@
 [![npm module downloads](http://img.shields.io/npm/dt/pdftotextjs.svg)](https://www.npmjs.org/package/pdftotextjs)
 [![Dependency Status](https://david-dm.org/fagbokforlaget/pdftotextjs.svg)](https://david-dm.org/fagbokforlaget/pdftotextjs)
 [![Build Status](https://travis-ci.org/fagbokforlaget/pdftotextjs.svg)](https://travis-ci.org/fagbokforlaget/pdftotextjs)
+[![Known Vulnerabilities](https://snyk.io/test/github/fagbokforlaget/pdftotextjs/badge.svg)](https://snyk.io/test/github/fagbokforlaget/pdftotextjs)
 [![view on npm](http://img.shields.io/npm/l/pdftotextjs.svg)](https://www.npmjs.org/package/pdftotextjs)
 
 
