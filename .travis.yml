@@ -1,12 +1,12 @@
 language: node_js
 before_install:
   - sudo apt-get install -qq poppler-utils
+  - npm install -g snyk
 before_script:
   - pdftotext -v
+  - snyk test
 node_js:
   - "0.12"
   - 4
   - 5
   - 6
-
-
