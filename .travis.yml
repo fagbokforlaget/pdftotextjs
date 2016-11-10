@@ -4,7 +4,7 @@ before_install:
   - npm install -g snyk
 before_script:
   - pdftotext -v
-  - snyk test
+  - npm run snyk-protect
 node_js:
   - "0.12"
   - 4
