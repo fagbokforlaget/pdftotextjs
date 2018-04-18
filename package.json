@@ -9,10 +9,9 @@
     "snyk-protect": "snyk protect",
     "prepublish": "npm run snyk-protect"
   },
-  "dependencies": {
-    "snyk": "^1.19.1"
-  },
+  "dependencies": {},
   "devDependencies": {
+    "snyk": "^1.19.1",
     "mocha": "^5.1.0",
     "nyc": "^11.6.0"
   },
@@ -24,6 +23,7 @@
     "pdf",
     "pdftotext",
     "mocha",
+    "snyk",
     "poppler"
   ],
   "author": {
