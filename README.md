@@ -25,21 +25,21 @@ $ npm install pdftotextjs
 
 ### Usage
 #### Asynchronous example
-```
-var pdftotext = require('pdftotextjs'),
-    pdf = new pdftotext('test/pdfs/sample.pdf');
+```javascript
+const pdftotext = require('pdftotextjs');
+const pdf = new pdftotext('test/pdfs/sample.pdf');
 
 // Convert first page only
 // These options will be passed to pdftotext
 // You may use any valid option
 pdf.add_options(['-f 1', '-l 1']);
 
-pdf.getText(function(err, stdout, stderr) {
-  if (err) {
-    console.error(stderr);
-  else {
-    console.log(stdout);
-  }
+pdf.getText()
+.then(result) {
+  console.log(result);
+})
+.catch(function (err) {
+  console.error(err);
 });
 
 ```
@@ -58,10 +58,3 @@ console.log(data.toString('utf8'));
 ```
 $ npm test
 ```
-
-Coverage
-
-```
-$ npm test-cov
-```
-

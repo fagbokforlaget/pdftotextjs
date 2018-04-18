@@ -6,7 +6,6 @@ before_script:
   - pdftotext -v
   - npm run snyk-protect
 node_js:
-  - "0.12"
-  - 4
-  - 5
   - 6
+  = 8
+  - 9

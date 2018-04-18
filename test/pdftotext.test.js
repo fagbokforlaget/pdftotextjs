@@ -34,9 +34,8 @@ describe('pdftotext', function(){
     it('should get pdf text', function(done){
       var ptext = new pdftotext(__dirname + '/pdfs/sample 1.pdf');
 
-      ptext.getText(function(err, stdout, stderr) {
-        assert.equal(err, null);
-        assert.ok(stdout.length);
+      ptext.getText().then(function (result) {
+        assert.ok(result.length);
         done();
       });
 
@@ -47,9 +46,8 @@ describe('pdftotext', function(){
     it('should get pdf text', function(done){
       var ptext = new pdftotext(__dirname + '/pdfs/sample.pdf');
 
-      ptext.getText(function(err, stdout, stderr) {
-        assert.equal(err, null);
-        assert.ok(stdout.length);
+      ptext.getText().then(function (result) {
+        assert.ok(result.length);
         done();
       });
 
@@ -61,13 +59,10 @@ describe('pdftotext', function(){
       var ptext = new pdftotext(__dirname + '/pdfs/sample.pdf');
 
       ptext.add_options(['-f 1', '-l 1']);
-
-      ptext.getText(function(err, stdout, stderr) {
-        assert.equal(err, null);
-        assert.ok(stdout.length);
+      ptext.getText().then(function (result) {
+        assert.ok(result.length);
         done();
       });
-
     });
   });
 
@@ -75,7 +70,7 @@ describe('pdftotext', function(){
     it('should call error callback', function(){
       var ptext = new pdftotext(__dirname + '/pdfs/invalidfile.pdf');
 
-      ptext.getText(function(err, stdout, stderr) {
+      ptext.getText().catch(function(err) {
         if (err) {
           done();
         }
