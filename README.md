@@ -46,11 +46,11 @@ pdf.getText()
 
 
 #### Synchronous example
-```
-var pdftotext = require('pdftotextjs'),
-    pdf = new pdftotext('test/pdfs/sample.pdf');
+```javascript
+const pdftotext = require('pdftotextjs');
+const pdf = new pdftotext('test/pdfs/sample.pdf');
 
-var data = pdf.getTextSync(); // returns buffer
+const data = pdf.getTextSync(); // returns buffer
 console.log(data.toString('utf8'));
 ```
 
