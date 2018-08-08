@@ -35,7 +35,7 @@ const pdf = new pdftotext('test/pdfs/sample.pdf');
 pdf.add_options(['-f 1', '-l 1']);
 
 pdf.getText()
-.then(result) {
+.then(function(result) {
   console.log(result);
 })
 .catch(function (err) {
